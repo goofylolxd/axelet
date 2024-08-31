@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://i.imgur.com/NV3xxK5.gif">
@@ -112,13 +112,13 @@
   <!-- Main Content -->
   <div class="content">
     <center><br><br>
-    <pre>
+    <pre>                                           
     $$$$$$$$  $$      $$  $$$$$$$$  $$       $$$$$$$$  $$$$$$$$$$
-    $$    $$   $$    $$   $$        $$       $$            $$
-      $$    $$     $$ $$    $$        $$       $$            $$  
-    $$$$$$$$      $$$     $$$$$$$$  $$       $$$$$$$$      $$
-    $$    $$    $$  $$    $$        $$       $$            $$
-    $$    $$   $$    $$   $$        $$       $$            $$
+    $$    $$  $$    $$  $$        $$       $$            $$
+      $$    $$   $$  $$    $$        $$       $$            $$  
+    $$$$$$$$  $$  $$    $$$$$$$$  $$       $$$$$$$$      $$
+    $$    $$  $$  $$    $$        $$       $$            $$
+    $$    $$  $$    $$  $$        $$       $$            $$
     $$    $$  $$      $$  $$$$$$$$  $$$$$$   $$$$$$$$      $$
 
 
@@ -164,15 +164,25 @@
       const titleElement = document.querySelector('title');
       const titleText = titleElement.textContent;
 
-      let typewriterElement = document.createElement('span');
-      typewriterElement.className = 'typewriter-text';
-      typewriterElement.textContent = titleText;
+      let typewriterElement = document.createElement('style');
+      typewriterElement.innerHTML = `
+        @keyframes typing {
+          from { width: 0; }
+          to { width: ${titleText.length}ch; }
+        }
+        @keyframes blink-caret {
+          from, to { border-color: transparent; }
+          50% { border-color: white; }
+        }
+        title::after {
+          content: '${titleText}';
+          border-right: 3px solid;
+          animation: typing 4s steps(${titleText.length}, end) forwards, blink-caret 1s step-end infinite;
+        }
+      `;
       document.head.appendChild(typewriterElement);
-
-      setTimeout(() => {
-        typewriterElement.className += ' removal';
-      }, 4000);
     }
   </script>
+
 </body>
 </html>
