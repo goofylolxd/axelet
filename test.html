@@ -22,7 +22,7 @@
       overflow: hidden;
     }
 
-    .entry-screen {
+    .userPage_clickToEnterOverlay__yTl7T {
       position: absolute;
       top: 0;
       left: 0;
@@ -36,23 +36,27 @@
       z-index: 1000;
     }
 
-    .entry-screen h1 {
+    .userPage_clickToEnterText__3qgKs {
+      font-weight: 700;
+      font-size: 32px;
       color: #FFFFFF;
-      font-size: 48px;
-      font-weight: bold;
       cursor: pointer;
-      text-align: center;
     }
 
     .content {
       visibility: hidden;
     }
+
+    a {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
 
-<div class="entry-screen" onclick="enterSite()">
-  <h1>Click to Enter</h1>
+<div class="userPage_clickToEnterOverlay__yTl7T" onclick="enterSite()">
+  <div class="userPage_clickToEnterText__3qgKs">click to enter...</div>
 </div>
 
 <div class="content">
@@ -100,7 +104,7 @@ Offline for 24 hours = terminated
 
 <script>
   function enterSite() {
-    document.querySelector('.entry-screen').style.display = 'none';
+    document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
     document.querySelector('.content').style.visibility = 'visible';
   }
 </script>
