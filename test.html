@@ -14,37 +14,49 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       color: #FFFFFF;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
     }
 
-    a {
+    .entry-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .entry-screen h1 {
       color: #FFFFFF;
-      text-decoration: none; /* Remove underline */
-    }
-
-    .click-to-enter {
-      font-size: 20px;
+      font-size: 48px;
       font-weight: bold;
-      color: #ff7c00;
-      margin-bottom: 20px;
-      display: inline-block;
-      padding: 10px 20px;
-      border: 2px solid #ff7c00;
-      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      text-align: center;
     }
 
-    .click-to-enter:hover {
-      background-color: #ff7c00;
-      color: #FFFFFF;
+    .content {
+      visibility: hidden;
     }
   </style>
 </head>
-<body bgcolor="#000" text="#fff" link="#ff7c00" vlink="#ff7c00" alink="#ff7c00" data-darkreader-inline-bgcolor="" style="--darkreader-inline-bgcolor: #000000;">
+<body>
+
+<div class="entry-screen" onclick="enterSite()">
+  <h1>Click to Enter</h1>
+</div>
+
+<div class="content">
 <center><br><br>
-
-<a href="#" class="click-to-enter">Click to Enter</a>
-
 <pre>                                           
     $$$$$$$$  $$      $$  $$$$$$$$  $$       $$$$$$$$  $$$$$$$$$$
 $$    $$   $$    $$   $$        $$       $$            $$
@@ -84,5 +96,14 @@ Offline for 24 hours = terminated
     
 </pre>
 </center>
+</div>
+
+<script>
+  function enterSite() {
+    document.querySelector('.entry-screen').style.display = 'none';
+    document.querySelector('.content').style.visibility = 'visible';
+  }
+</script>
+
 </body>
 </html>
