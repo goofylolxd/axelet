@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Card</title>
+  <title>Dynamic User Card</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,13 +17,14 @@
 
     .user-card {
       display: flex;
-      margin-top: 20px;
+      flex-direction: row;
+      background-color: #fff;
       border: 1px solid #ccc;
       border-radius: 10px;
       padding: 15px;
-      background-color: #fff;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       width: 400px;
+      align-items: center;
     }
 
     .profile-section {
@@ -73,26 +74,84 @@
     }
 
     .song-art {
-      display: flex;
-      align-items: center;
-    }
-
-    .album-art {
       width: 60px;
       height: 60px;
       border-radius: 5px;
+    }
+
+    .status.online {
+      border-color: #4caf50;
+    }
+
+    .status.away {
+      border-color: #ffc107;
+    }
+
+    .status.offline {
+      border-color: #f44336;
     }
   </style>
 </head>
 <body>
   <div class="user-card">
     <div class="profile-section">
-      <img src="https://cdn.discordapp.com/avatars/1292066809050300498/b5820a7a0caf3334d0368d4adf82fd6d.webp" alt="User Avatar" class="avatar">
-      <img src="https://assets.guns.lol/dnd.png" alt="Status" class="status-icon">
+      <img id="avatar" src="https://cdn.discordapp.com/avatars/1292066809050300498/b5820a7a0caf3334d0368d4adf82fd6d.webp" alt="User Avatar" class="avatar status online">
+      <img id="status-icon" src="https://assets.guns.lol/dnd.png" alt="Status" class="status-icon">
     </div>
     <div class="info-section">
       <div class="user-info">
-        <span class="username">axe1et</span>
+        <span id="username" class="username">axe1et</span>
         <img src="https://cdn.discordapp.com/badge-icons/2ba85e8026a8614b640c2837bcdfe21b.png" alt="Badge" class="badge">
       </div>
-      <h3 class="listening
+      <h3 id="listening" class="listening">
+        <span id="activity-label">Listening to</span><br>
+        <span id="song-name">Gods &amp; Demons</span> by <span id="artists">fadewtf, prodbysky</span>
+      </h3>
+    </div>
+    <div class="song-art">
+      <img id="album-art" src="https://i.scdn.co/image/ab67616d0000b273de0d67699243d0feda15cadc" alt="Album Art" class="song-art">
+    </div>
+  </div>
+
+  <script>
+    // Sample dynamic status and activity data
+    const user = {
+      status: "online", // online, away, offline
+      crp: {
+        label: "Listening to",
+        song: "Gods & Demons",
+        artists: "fadewtf, prodbysky",
+        albumArt: "https://i.scdn.co/image/ab67616d0000b273de0d67699243d0feda15cadc"
+      }
+    };
+
+    function updateUserCard() {
+      const avatar = document.getElementById("avatar");
+      const statusIcon = document.getElementById("status-icon");
+      const activityLabel = document.getElementById("activity-label");
+      const songName = document.getElementById("song-name");
+      const artists = document.getElementById("artists");
+      const albumArt = document.getElementById("album-art");
+
+      // Update status
+      avatar.className = `avatar status ${user.status}`;
+      if (user.status === "online") {
+        statusIcon.src = "https://assets.guns.lol/dnd.png";
+      } else if (user.status === "away") {
+        statusIcon.src = "https://assets.guns.lol/away.png"; // Replace with appropriate icon
+      } else {
+        statusIcon.src = "https://assets.guns.lol/offline.png"; // Replace with appropriate icon
+      }
+
+      // Update CRP
+      activityLabel.textContent = user.crp.label;
+      songName.textContent = user.crp.song;
+      artists.textContent = user.crp.artists;
+      albumArt.src = user.crp.albumArt;
+    }
+
+    // Call update function to apply changes
+    updateUserCard();
+  </script>
+</body>
+</html>
