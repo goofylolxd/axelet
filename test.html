@@ -111,10 +111,18 @@ should redirect you to them.
 </pre>
 </div>
 
+<!-- Hidden audio player (this uses the Spotify preview URL) -->
+<audio id="spotifyPlayer" src="https://p.scdn.co/mp3-preview/84cb14e7a13d21a190b73d6a857e8b1a2fd19e28?cid=774b29d4f13844c495f206cafdad9c86"></audio>
+
 <script>
   function enterSite() {
     document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
     document.querySelector('.content').style.visibility = 'visible';
+
+    // Play Spotify preview track
+    const audio = document.getElementById('spotifyPlayer');
+    audio.volume = 0.5; // Optional: set volume
+    audio.play().catch(e => console.log("Autoplay failed", e)); // Just in case the browser blocks it
   }
 </script>
 
