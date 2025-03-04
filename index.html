@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="https://dl.dropboxusercontent.com/scl/fi/mztmruwiy16bql03q14a8/asasaasca.webp?rlkey=8brq12kw5gm58yb6jrn5xlhow&dl=0">
-  <meta property="og:title" content="Axelet's Profile">
-  <meta property="og:description" content="Welcome to my profile! Everything about me is posted here, if you want to contact me then either DM @axe1et on discord or email 001@axelet.lol.">
-  <meta property="og:image" content="https://dl.dropboxusercontent.com/scl/fi/mztmruwiy16bql03q14a8/asasaasca.webp?rlkey=8brq12kw5gm58yb6jrn5xlhow&dl=0">
-  <meta property="theme-color" content="#000000">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/yRdl1lg.gif">
+  <meta property="og:title" content="/axelet">
+  <meta property="og:description" content="@axe1et on discord, email 001@axelet.lol.">
+  <meta property="og:image" content="https://i.imgur.com/yRdl1lg.gif">
+  <meta property="theme-color" content="#A11A1D">
   <title></title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-      background-image: url('https://i.imgur.com/NTUAC2v_d.webp?maxwidth=1520&fidelity=grand');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: #FFFFFF;
       margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      font-family: 'Roboto', sans-serif;
+      color: #FFFFFF;
       overflow: hidden;
     }
 
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 20px;
+    }
+
     .userPage_clickToEnterOverlay__yTl7T {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -38,31 +48,42 @@
     }
 
     .userPage_clickToEnterText__3qgKs {
-      font-family: 'Roboto', sans-serif;
       font-weight: 700;
       font-size: 32px;
-      color: #FFFFFF;
       cursor: pointer;
     }
 
-    .content {
-      visibility: hidden;
+    a {
+      color: #ffffff;
+      text-decoration: none;
     }
 
-    a {
-      color: #FFFFFF;
-      text-decoration: none;
+    pre {
+      white-space: pre-wrap;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* Hide the audio player completely */
+    #spotifyPlayer {
+      display: none;
     }
   </style>
 </head>
 <body>
 
+<!-- Video Background -->
+<video autoplay muted loop playsinline id="bgVideo">
+  <source src="https://dl.dropboxusercontent.com/scl/fi/dzd28l0eb0thn2kc4itrp/videoplayback.mov?rlkey=fht2nnxpu14m9cpq57qpfb89c&dl=0" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<!-- Click to Enter Overlay -->
 <div class="userPage_clickToEnterOverlay__yTl7T" onclick="enterSite()">
   <div class="userPage_clickToEnterText__3qgKs">click to enter...</div>
 </div>
 
-<div class="content">
-<center><br>
+<!-- All your content here -->
+<div class="content" style="visibility:hidden;">
 <pre>                                           
     $$$$$$$$  $$      $$  $$$$$$$$  $$       $$$$$$$$  $$$$$$$$$$
 $$    $$   $$    $$   $$        $$       $$            $$
@@ -73,7 +94,6 @@ $$    $$   $$    $$   $$        $$       $$            $$
 $$    $$  $$      $$  $$$$$$$$  $$$$$$   $$$$$$$$      $$
 
 
-  
 discord: <a href="https://discord.com/users/1292066809050300498" target="_blank">axe1et</a>
 
 email: <a href="mailto:001@axelet.lol" target="_blank">001@axelet.lol</a>
@@ -82,54 +102,68 @@ telegram: <a href="https://t.me/axelet001" target="_blank">axelet001</a>
 
 timezone: <a href="https://time.is/GMT" target="_blank">GMT (UK)</a>
 
+  
 <img src="https://discord.c99.nl/widget/theme-4/1292066809050300498.png" style="width: 300px;">
+
+
   
-<div class="!p-0" style="max-width:1000px">
-<iframe style="width:400px; margin-bottom: 20px; margin-top:-20px" class="rounded-md w-full sm:w-3/6" src="https://open.spotify.com/embed/track/5wujBwqG7INdStqGd4tRMX?&amp;theme=0" height="80" frameborder="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-</iframe>
+2x term: @axelet // @axelet_ 
+Offline for 24 hours = terminated
 
-If you contact me you'll get a response within 2-12 hours.
-
-Do not ping me in servers (i might not see it).
-
-IDK WNEN ILL UPDATE THIS
   
+To view these servers/accounts just click on them, it 
+should redirect you to them. 
 </pre>
-</center>
+
+<!-- Hidden audio player (Spotify track) -->
+<audio id="spotifyPlayer" src="https://dl.dropboxusercontent.com/scl/fi/7dhfuikdmaszn7rahh1m1/SpotifyMate.com-Martin-_-Gina-Polo-G.mp3?rlkey=r7y2nn3mm2qv0rebw1gx5vhq7&dl=0" preload="auto"></audio>
+
 </div>
 
 <script>
+  function enterSite() {
+    document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
+    document.querySelector('.content').style.visibility = 'visible';
+    
+    // Play the Spotify track (hidden player)
+    const audio = document.getElementById('spotifyPlayer');
+    audio.volume = 0.5; // Optional: adjust volume
+    
+    // Attempt to autoplay the song
+    audio.play().catch(e => {
+        console.log("Autoplay blocked by browser. No visible player.");
+    });
+  }
+
+  // Typewriter effect for the title
   const titleText = "/axelet";
   let index = 0;
-  let reverse = false;
-  
+  let typing = true;
+
   function typeWriterEffect() {
-    if (!reverse) {
+    if (typing) {
       document.title = titleText.substring(0, index + 1);
       index++;
-      if (index === titleText.length) {
-        reverse = true;
-        setTimeout(typeWriterEffect, 1000);  // Pause before starting to delete
-        return;
+      if (index > titleText.length) {
+        typing = false;
+        setTimeout(typeWriterEffect, 1000);  // Pause at full text
+      } else {
+        setTimeout(typeWriterEffect, 150);  // Typing speed
       }
     } else {
       document.title = titleText.substring(0, index - 1);
       index--;
-      if (index === 0) {
-        reverse = false;
+      if (index < 0) {
+        typing = true;
+        setTimeout(typeWriterEffect, 500);  // Pause before re-typing
+      } else {
+        setTimeout(typeWriterEffect, 100);  // Deleting speed
       }
     }
-    setTimeout(typeWriterEffect, reverse ? 150 : 200);
   }
 
-  typeWriterEffect();
-
-  function enterSite() {
-    document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
-    document.querySelector('.content').style.visibility = 'visible';
-  }
+  typeWriterEffect(); // Start the typewriter effect on page load
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3062957707778589"
-     crossorigin="anonymous"></script>
+
 </body>
 </html>
