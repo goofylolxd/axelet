@@ -11,13 +11,9 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      color: #FFFFFF;
       font-family: 'Roboto', sans-serif;
+      color: #FFFFFF;
+      overflow: hidden;
     }
 
     #bgVideo {
@@ -30,8 +26,15 @@
       z-index: -1;
     }
 
+    .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 20px;
+    }
+
     .userPage_clickToEnterOverlay__yTl7T {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -50,24 +53,64 @@
       cursor: pointer;
     }
 
-    .content {
-      visibility: hidden;
+    a {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      font-family: 'Courier New', Courier, monospace;
     }
   </style>
 </head>
 <body>
 
+<!-- Video Background -->
 <video autoplay muted loop playsinline id="bgVideo">
   <source src="https://dl.dropboxusercontent.com/scl/fi/dzd28l0eb0thn2kc4itrp/videoplayback.mov?rlkey=fht2nnxpu14m9cpq57qpfb89c&dl=0" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
+<!-- Click to Enter Overlay -->
 <div class="userPage_clickToEnterOverlay__yTl7T" onclick="enterSite()">
   <div class="userPage_clickToEnterText__3qgKs">click to enter...</div>
 </div>
 
-<div class="content">
-  <!-- Your existing content goes here (the pre, links, etc.) -->
+<!-- All your content here -->
+<div class="content" style="visibility:hidden;">
+<pre>                                           
+    $$$$$$$$  $$      $$  $$$$$$$$  $$       $$$$$$$$  $$$$$$$$$$
+$$    $$   $$    $$   $$        $$       $$            $$
+  $$    $$     $$ $$    $$        $$       $$            $$  
+$$$$$$$$      $$$     $$$$$$$$  $$       $$$$$$$$      $$
+$$    $$    $$  $$    $$        $$       $$            $$
+$$    $$   $$    $$   $$        $$       $$            $$
+$$    $$  $$      $$  $$$$$$$$  $$$$$$   $$$$$$$$      $$
+
+
+Owner @  <a href="https://axelet.lol/roshop" target="_blank">RoShop 🛒 </a> 
+
+discord: <a href="https://discord.com/users/1292066809050300498" target="_blank">axe1et</a>
+
+email: <a href="mailto:001@axelet.lol" target="_blank">001@axelet.lol</a>
+
+telegram: <a href="https://t.me/axelet001" target="_blank">axelet001</a>
+
+timezone: <a href="https://time.is/GMT" target="_blank">GMT (UK)</a>
+
+<img src="https://discord.c99.nl/widget/theme-4/1292066809050300498.png" style="width: 300px;">
+  
+<div class="!p-0" style="max-width:1000px">
+<iframe style="width:400px; margin-bottom: 20px; margin-top:-20px" class="rounded-md w-full sm:w-3/6" src="https://open.spotify.com/track/782nlJJytrpd7EPKZslTyh?&theme=0" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+2x term: @axelet // @axelet_ 
+Offline for 24 hours = terminated
+
+  
+To view these servers/accounts just click on them, it 
+should redirect you to them. 
+</pre>
 </div>
 
 <script>
