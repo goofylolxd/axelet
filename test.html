@@ -63,11 +63,9 @@
       font-family: 'Courier New', Courier, monospace;
     }
 
+    /* Hide the audio player completely */
     #spotifyPlayer {
-      display: none; /* Hidden by default */
-      width: 100%;
-      max-width: 400px;
-      margin: 20px auto;
+      display: none;
     }
   </style>
 </head>
@@ -96,8 +94,6 @@ $$    $$   $$    $$   $$        $$       $$            $$
 $$    $$  $$      $$  $$$$$$$$  $$$$$$   $$$$$$$$      $$
 
 
-Owner @  <a href="https://axelet.lol/roshop" target="_blank">RoShop 🛒 </a> 
-
 discord: <a href="https://discord.com/users/1292066809050300498" target="_blank">axe1et</a>
 
 email: <a href="mailto:001@axelet.lol" target="_blank">001@axelet.lol</a>
@@ -117,24 +113,54 @@ To view these servers/accounts just click on them, it
 should redirect you to them. 
 </pre>
 
-<!-- Hidden audio player that can be shown if needed -->
-<audio id="spotifyPlayer" src="https://p.scdn.co/mp3-preview/84cb14e7a13d21a190b73d6a857e8b1a2fd19e28?cid=774b29d4f13844c495f206cafdad9c86" controls></audio>
+<!-- Hidden audio player (Spotify track) -->
+<audio id="spotifyPlayer" src="https://dl.dropboxusercontent.com/scl/fi/8rvxzi7luze25m9yk92vf/SpotifyMate.com-Menage-Docboy.mp3?rlkey=hq96jivow5gf1y4p4wvr46qh3&dl=1" preload="auto"></audio>
 
 </div>
 
 <script>
-function enterSite() {
+  function enterSite() {
     document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
     document.querySelector('.content').style.visibility = 'visible';
-
+    
+    // Play the Spotify track (hidden player)
     const audio = document.getElementById('spotifyPlayer');
-    audio.volume = 0.5;
-
-    audio.play().catch(err => {
-        console.warn("Autoplay blocked by browser - showing player");
-        audio.style.display = 'block'; // Show player if autoplay fails
+    audio.volume = 0.5; // Optional: adjust volume
+    
+    // Attempt to autoplay the song
+    audio.play().catch(e => {
+        console.log("Autoplay blocked by browser. No visible player.");
     });
-}
+  }
+
+  // Typewriter effect for the title
+  const titleText = "/axelet";
+  let index = 0;
+  let typing = true;
+
+  function typeWriterEffect() {
+    if (typing) {
+      document.title = titleText.substring(0, index + 1);
+      index++;
+      if (index > titleText.length) {
+        typing = false;
+        setTimeout(typeWriterEffect, 1000);  // Pause at full text
+      } else {
+        setTimeout(typeWriterEffect, 150);  // Typing speed
+      }
+    } else {
+      document.title = titleText.substring(0, index - 1);
+      index--;
+      if (index < 0) {
+        typing = true;
+        setTimeout(typeWriterEffect, 500);  // Pause before re-typing
+      } else {
+        setTimeout(typeWriterEffect, 100);  // Deleting speed
+      }
+    }
+  }
+
+  typeWriterEffect(); // Start the typewriter effect on page load
 </script>
 
 </body>
