@@ -62,6 +62,13 @@
       white-space: pre-wrap;
       font-family: 'Courier New', Courier, monospace;
     }
+
+    #spotifyPlayer {
+      display: none; /* Hidden by default */
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+    }
   </style>
 </head>
 <body>
@@ -89,6 +96,7 @@ $$    $$   $$    $$   $$        $$       $$            $$
 $$    $$  $$      $$  $$$$$$$$  $$$$$$   $$$$$$$$      $$
 
 
+Owner @  <a href="https://axelet.lol/roshop" target="_blank">RoShop 🛒 </a> 
 
 discord: <a href="https://discord.com/users/1292066809050300498" target="_blank">axe1et</a>
 
@@ -101,7 +109,6 @@ timezone: <a href="https://time.is/GMT" target="_blank">GMT (UK)</a>
   
 <img src="https://discord.c99.nl/widget/theme-4/1292066809050300498.png" style="width: 300px;">
 
-  
 2x term: @axelet // @axelet_ 
 Offline for 24 hours = terminated
 
@@ -109,21 +116,25 @@ Offline for 24 hours = terminated
 To view these servers/accounts just click on them, it 
 should redirect you to them. 
 </pre>
+
+<!-- Hidden audio player that can be shown if needed -->
+<audio id="spotifyPlayer" src="https://p.scdn.co/mp3-preview/84cb14e7a13d21a190b73d6a857e8b1a2fd19e28?cid=774b29d4f13844c495f206cafdad9c86" controls></audio>
+
 </div>
 
-<!-- Hidden audio player (this uses the Spotify preview URL) -->
-<audio id="spotifyPlayer" src="https://p.scdn.co/mp3-preview/84cb14e7a13d21a190b73d6a857e8b1a2fd19e28?cid=774b29d4f13844c495f206cafdad9c86"></audio>
-
 <script>
-  function enterSite() {
+function enterSite() {
     document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
     document.querySelector('.content').style.visibility = 'visible';
 
-    // Play Spotify preview track
     const audio = document.getElementById('spotifyPlayer');
-    audio.volume = 0.5; // Optional: set volume
-    audio.play().catch(e => console.log("Autoplay failed", e)); // Just in case the browser blocks it
-  }
+    audio.volume = 0.5;
+
+    audio.play().catch(err => {
+        console.warn("Autoplay blocked by browser - showing player");
+        audio.style.display = 'block'; // Show player if autoplay fails
+    });
+}
 </script>
 
 </body>
