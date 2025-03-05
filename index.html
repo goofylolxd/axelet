@@ -63,26 +63,60 @@
       font-family: 'Courier New', Courier, monospace;
     }
 
-    /* Hide the audio player completely */
     #spotifyPlayer {
       display: none;
+    }
+
+    #volumeControl {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    #volumeSlider {
+      width: 100px;
+      cursor: pointer;
+      appearance: none;
+      height: 5px;
+      background: #fff;
+      outline: none;
+      border-radius: 5px;
+    }
+
+    #volumeSlider::-webkit-slider-thumb {
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      background: #A11A1D;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #volumeIcon {
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-<!-- Video Background -->
 <video autoplay muted loop playsinline id="bgVideo">
   <source src="https://dl.dropboxusercontent.com/scl/fi/dzd28l0eb0thn2kc4itrp/videoplayback.mov?rlkey=fht2nnxpu14m9cpq57qpfb89c&dl=0" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-<!-- Click to Enter Overlay -->
 <div class="userPage_clickToEnterOverlay__yTl7T" onclick="enterSite()">
   <div class="userPage_clickToEnterText__3qgKs">click to enter...</div>
 </div>
 
-<!-- All your content here -->
 <div class="content" style="visibility:hidden;">
 <pre>                                           
     $$$$$$$$  $$      $$  $$$$$$$$  $$       $$$$$$$$  $$$$$$$$$$
@@ -105,15 +139,30 @@ timezone: <a href="https://time.is/GMT" target="_blank">GMT (UK)</a>
   
 <img src="https://discord.c99.nl/widget/theme-4/1292066809050300498.png" style="width: 400px;">
 
- 
+
+  
 Offline for 24 hours = terminated
+
   
 To view these servers/accounts just click on them, 
 it should redirect you to them. 
 </pre>
 
-<!-- Hidden audio player (Spotify track) -->
 <audio id="spotifyPlayer" src="https://dl.dropboxusercontent.com/scl/fi/7dhfuikdmaszn7rahh1m1/SpotifyMate.com-Martin-_-Gina-Polo-G.mp3?rlkey=r7y2nn3mm2qv0rebw1gx5vhq7&dl=0" preload="auto" loop></audio>
+
+<!-- Volume Control -->
+<div id="volumeControl">
+  <span id="volumeIcon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+      <g fill="none" stroke="white" stroke-width="4">
+        <path fill="#555" stroke-linejoin="round" d="M24 6v36c-7 0-12.201-9.16-12.201-9.16H6a2 2 0 0 1-2-2V17.01a2 2 0 0 1 2-2h5.799S17 6 24 6Z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M32 15a11.91 11.91 0 0 1 1.684 1.859A12.07 12.07 0 0 1 36 24c0 2.654-.846 5.107-2.278 7.09A11.936 11.936 0 0 1 32 33"></path>
+        <path stroke-linecap="round" d="M34.236 41.186C40.084 37.696 44 31.305 44 24c0-7.192-3.796-13.496-9.493-17.02"></path>
+      </g>
+    </svg>
+  </span>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+</div>
 
 </div>
 
@@ -121,45 +170,20 @@ it should redirect you to them.
   function enterSite() {
     document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
     document.querySelector('.content').style.visibility = 'visible';
-    
-    // Play the Spotify track (hidden player)
+
     const audio = document.getElementById('spotifyPlayer');
-    audio.volume = 0.5; // Optional: adjust volume
-    
-    // Attempt to autoplay the song
-    audio.play().catch(e => {
-        console.log("Autoplay blocked by browser. No visible player.");
-    });
+    audio.volume = 0.5;
+    audio.play().catch(e => console.log("Autoplay blocked."));
   }
 
-  // Typewriter effect for the title
-  const titleText = "@axelet";
-  let index = 0;
-  let typing = true;
+  const volumeSlider = document.getElementById('volumeSlider');
+  const audio = document.getElementById('spotifyPlayer');
 
-  function typeWriterEffect() {
-    if (typing) {
-      document.title = titleText.substring(0, index + 1);
-      index++;
-      if (index > titleText.length) {
-        typing = false;
-        setTimeout(typeWriterEffect, 1000);  // Pause at full text
-      } else {
-        setTimeout(typeWriterEffect, 150);  // Typing speed
-      }
-    } else {
-      document.title = titleText.substring(0, index - 1);
-      index--;
-      if (index < 0) {
-        typing = true;
-        setTimeout(typeWriterEffect, 500);  // Pause before re-typing
-      } else {
-        setTimeout(typeWriterEffect, 100);  // Deleting speed
-      }
-    }
-  }
-
-  typeWriterEffect(); // Start the typewriter effect on page load
+  volumeSlider.addEventListener('input', () => audio.volume = volumeSlider.value);
+  document.getElementById('volumeIcon').addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    document.getElementById('volumeIcon').style.opacity = audio.muted ? '0.5' : '1';
+  });
 </script>
 
 </body>
