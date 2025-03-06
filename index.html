@@ -6,7 +6,7 @@
   <meta property="og:description" content="@axe1et on discord, email 001@axelet.lol.">
   <meta property="og:image" content="https://i.imgur.com/IcJdCHb.png">
   <meta property="theme-color" content="#A11A1D">
-  <title></title>
+  <title>@axelet</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -150,16 +150,9 @@ it should redirect you to them.
 
 <audio id="spotifyPlayer" src="https://dl.dropboxusercontent.com/scl/fi/7dhfuikdmaszn7rahh1m1/SpotifyMate.com-Martin-_-Gina-Polo-G.mp3?rlkey=r7y2nn3mm2qv0rebw1gx5vhq7&dl=0" preload="auto" loop></audio>
 
-<!-- Volume Control -->
 <div id="volumeControl">
   <span id="volumeIcon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
-      <g fill="none" stroke="white" stroke-width="4">
-        <path fill="#555" stroke-linejoin="round" d="M24 6v36c-7 0-12.201-9.16-12.201-9.16H6a2 2 0 0 1-2-2V17.01a2 2 0 0 1 2-2h5.799S17 6 24 6Z"></path>
-        <path stroke-linecap="round" stroke-linejoin="round" d="M32 15a11.91 11.91 0 0 1 1.684 1.859A12.07 12.07 0 0 1 36 24c0 2.654-.846 5.107-2.278 7.09A11.936 11.936 0 0 1 32 33"></path>
-        <path stroke-linecap="round" d="M34.236 41.186C40.084 37.696 44 31.305 44 24c0-7.192-3.796-13.496-9.493-17.02"></path>
-      </g>
-    </svg>
+    🔊
   </span>
   <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
 </div>
@@ -182,8 +175,28 @@ it should redirect you to them.
   volumeSlider.addEventListener('input', () => audio.volume = volumeSlider.value);
   document.getElementById('volumeIcon').addEventListener('click', () => {
     audio.muted = !audio.muted;
-    document.getElementById('volumeIcon').style.opacity = audio.muted ? '0.5' : '1';
+    document.getElementById('volumeIcon').innerText = audio.muted ? '🔇' : '🔊';
   });
+
+  // Typewriter Title Effect
+  const titleText = "@axelet";
+  let titleIndex = 0;
+
+  function typeWriter() {
+      document.title = titleText.substring(0, titleIndex + 1);
+      titleIndex++;
+
+      if (titleIndex < titleText.length) {
+          setTimeout(typeWriter, 150);
+      } else {
+          setTimeout(() => {
+              titleIndex = 0;
+              typeWriter();
+          }, 2000);
+      }
+  }
+
+  window.addEventListener('load', typeWriter);
 </script>
 
 </body>
