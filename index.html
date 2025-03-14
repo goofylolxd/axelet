@@ -31,7 +31,6 @@
       z-index: 10;
       text-align: center;
       padding: 20px;
-      visibility: hidden;
     }
 
     .userPage_clickToEnterOverlay__yTl7T {
@@ -53,6 +52,58 @@
       font-size: 32px;
       cursor: pointer;
     }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    #spotifyPlayer {
+      display: none;
+    }
+
+    #volumeControl {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    #volumeSlider {
+      width: 100px;
+      cursor: pointer;
+      appearance: none;
+      height: 5px;
+      background: #fff;
+      outline: none;
+      border-radius: 5px;
+    }
+
+    #volumeSlider::-webkit-slider-thumb {
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      background: #A11A1D;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #volumeIcon {
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -62,39 +113,91 @@
   Your browser does not support the video tag.
 </video>
 
-<audio id="audio1" src="https://dl.dropboxusercontent.com/scl/fi/9nrj2goktxlai1r8ijyb4/SpotifyMate.com-COCAINE-NOSE-Playboi-Carti.mp3?rlkey=zplkmo60sxwbl1rk0346vf6yo&dl=0" preload="auto"></audio>
-<audio id="audio2" src="https://dl.dropboxusercontent.com/scl/fi/7dhfuikdmaszn7rahh1m1/SpotifyMate.com-Martin-_-Gina-Polo-G.mp3?rlkey=r7y2nn3mm2qv0rebw1gx5vhq7&dl=0" preload="auto"></audio>
+<div class="userPage_clickToEnterOverlay__yTl7T" onclick="enterSite()">
+  <div class="userPage_clickToEnterText__3qgKs">click to enter...</div>
+</div>
+
+<div class="content" style="visibility:hidden;">
+<pre>                                           
+    $$$$$$$$  $$      $$  $$$$$$$$  $$       $$$$$$$$  $$$$$$$$$$
+$$    $$   $$    $$   $$        $$       $$            $$
+  $$    $$     $$ $$    $$        $$       $$            $$  
+$$$$$$$$      $$$     $$$$$$$$  $$       $$$$$$$$      $$
+$$    $$    $$  $$    $$        $$       $$            $$
+$$    $$   $$    $$   $$        $$       $$            $$
+$$    $$  $$      $$  $$$$$$$$  $$$$$$   $$$$$$$$      $$
+
+
+discord: <a href="https://discord.com/users/1292066809050300498" target="_blank">axe1et</a>
+
+email: <a href="mailto:001@axelet.lol" target="_blank">001@axelet.lol</a>
+
+telegram: <a href="https://t.me/axelet001" target="_blank">axelet001</a>
+
+timezone: <a href="https://time.is/GMT" target="_blank">GMT (UK)</a>
+
+  
+<img src="https://discord.c99.nl/widget/theme-4/1292066809050300498.png" style="width: 400px;">
+
+
+  
+Offline for 24 hours = terminated
+
+  
+To view these servers/accounts just click on them, 
+it should redirect you to them. 
+</pre>
+
+<audio id="spotifyPlayer" src="https://dl.dropboxusercontent.com/scl/fi/9nrj2goktxlai1r8ijyb4/SpotifyMate.com-COCAINE-NOSE-Playboi-Carti.mp3?rlkey=zplkmo60sxwbl1rk0346vf6yo&dl=0" preload="auto" loop></audio>
+
+<div id="volumeControl">
+  <span id="volumeIcon">
+    🔊
+  </span>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+</div>
 
 <script>
   function enterSite() {
     document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
     document.querySelector('.content').style.visibility = 'visible';
-    
-    const audio1 = document.getElementById('audio1');
-    const audio2 = document.getElementById('audio2');
-    
-    audio1.volume = 0.5;
-    audio2.volume = 0.5;
-    
-    audio1.play().catch(e => console.log("Autoplay blocked."));
-    
-    audio1.addEventListener('ended', () => {
-      audio2.play();
-    });
-    
-    audio2.addEventListener('ended', () => {
-      audio1.play();
-    });
+
+    const audio = document.getElementById('spotifyPlayer');
+    audio.volume = 0.5;
+    audio.play().catch(e => console.log("Autoplay blocked."));
   }
+
+  const volumeSlider = document.getElementById('volumeSlider');
+  const audio = document.getElementById('spotifyPlayer');
+
+  volumeSlider.addEventListener('input', () => audio.volume = volumeSlider.value);
+  document.getElementById('volumeIcon').addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    document.getElementById('volumeIcon').innerText = audio.muted ? '🔇' : '🔊';
+  });
+
+  // Typewriter Title Effect
+  const titleText = "@axelet";
+  let titleIndex = 0;
+
+  function typeWriter() {
+      document.title = titleText.substring(0, titleIndex + 1);
+      titleIndex++;
+
+      if (titleIndex < titleText.length) {
+          setTimeout(typeWriter, 150);
+      } else {
+          setTimeout(() => {
+              titleIndex = 0;
+              typeWriter();
+          }, 2000);
+      }
+  }
+
+  window.addEventListener('load', typeWriter);
 </script>
-
-<div class="userPage_clickToEnterOverlay__yTl7T" onclick="enterSite()">
-  <div class="userPage_clickToEnterText__3qgKs">click to enter...</div>
-</div>
-
-<div class="content">
-  <p>Welcome to the page</p>
-</div>
 
 </body>
 </html>
