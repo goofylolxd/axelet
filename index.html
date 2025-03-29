@@ -1,218 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="icon" type="image/png" href="https://i.imgur.com/IcJdCHb.png">
-  <meta property="og:title" content="/axelet">
-  <meta property="og:description" content="@axe1et on discord, email 001@axelet.lol. click to view more information">
-  <meta property="og:image" content="https://i.imgur.com/IcJdCHb.png">
-  <meta property="theme-color" content="#A11A1D">
-  <title>@axelet</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      color: #FFFFFF;
-      overflow: hidden;
-    }
-
-    #bgVideo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    .content {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .userPage_clickToEnterOverlay__yTl7T {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .userPage_clickToEnterText__3qgKs {
-      font-weight: 700;
-      font-size: 32px;
-      cursor: pointer;
-    }
-
-    a {
-      color: #ffffff;
-      text-decoration: none;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      font-family: 'Courier New', Courier, monospace;
-    }
-
-    #spotifyPlayer {
-      display: none;
-    }
-
-    #volumeControl {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 8px;
-      border-radius: 8px;
-    }
-
-    #volumeSlider {
-      width: 100px;
-      cursor: pointer;
-      appearance: none;
-      height: 5px;
-      background: #fff;
-      outline: none;
-      border-radius: 5px;
-    }
-
-    #volumeSlider::-webkit-slider-thumb {
-      appearance: none;
-      width: 12px;
-      height: 12px;
-      background: #A11A1D;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    #volumeIcon {
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .black-box {
-      background: black;
-      border-radius: 20px;
-      padding: 20px;
-      display: inline-block;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-
-<video autoplay muted loop playsinline id="bgVideo">
-  <source src="https://dl.dropboxusercontent.com/scl/fi/q1z54y0qz6nd0nlxp7l5x/Untitled-video-Made-with-Clipchamp-1.mp4?rlkey=ah6yvx4c6aohvpbj1c1qop02n&dl=0" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-<div class="userPage_clickToEnterOverlay__yTl7T" onclick="enterSite()">
-  <div class="userPage_clickToEnterText__3qgKs">click to enter...</div>
-</div>
-
-<div class="content" style="visibility:hidden;">
-  <pre style="font-weight: 900;">
-  <strong>
-$$$$$$$$  $$      $$  $$$$$$$$  $$       $$$$$$$$  $$$$$$$$$$
-$$    $$   $$    $$   $$        $$       $$            $$
-  $$    $$     $$ $$    $$        $$       $$            $$  
-$$$$$$$$      $$$     $$$$$$$$  $$       $$$$$$$$      $$
-$$    $$    $$  $$    $$        $$       $$            $$
-$$    $$   $$    $$   $$        $$       $$            $$
-$$    $$  $$      $$  $$$$$$$$  $$$$$$   $$$$$$$$      $$
-</strong>
-</pre>
-  
-  <div class="black-box">
-    <p>Additional content inside the black box.</p>
-  </div>
-  
-  <p>
-    discord: <a href="https://discord.com/users/1292066809050300498" target="_blank">axe1et</a>
-    <br>
-    telegram: <a href="https://t.me/a_xelet" target="_blank">a_xelet</a>
-    <br>
-    email: <a href="mailto:001@axelet.lol" target="_blank">001@axelet.lol</a>
-    <br>
-    timezone: <a href="https://time.is/GMT" target="_blank">GMT (UK)</a>
-  </p>
-
-  
-<img src="https://discord.c99.nl/widget/theme-4/1292066809050300498.png" style="width: 450px;">
-
-
-discord (old): <a href="https://discord.com/users/682830561714110502" target="_blank">@axelet</a>
-Offline for 24-48 hours = terminated
-  
-To view these servers/accounts just click on them, 
-it should redirect you to them. 
-</pre>
-
-<audio id="spotifyPlayer" src="https://dl.dropboxusercontent.com/scl/fi/lxo885270jszmsrd27rja/SpotifyMate.com-EVIL-J0RDAN-Playboi-Carti.mp3?rlkey=isluode68nlz9gjc2dd4f5o62&dl=0" preload="auto" loop></audio>
-
-<div id="volumeControl">
-  <span id="volumeIcon">
-    🔊
-  </span>
-  <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
-</div>
-
-</div>
-
-<script>
-  function enterSite() {
-    document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
-    document.querySelector('.content').style.visibility = 'visible';
-
-    const audio = document.getElementById('spotifyPlayer');
-    audio.volume = 0.5;
-    audio.play().catch(e => console.log("Autoplay blocked."));
-  }
-
-  const volumeSlider = document.getElementById('volumeSlider');
-  const audio = document.getElementById('spotifyPlayer');
-
-  volumeSlider.addEventListener('input', () => audio.volume = volumeSlider.value);
-  document.getElementById('volumeIcon').addEventListener('click', () => {
-    audio.muted = !audio.muted;
-    document.getElementById('volumeIcon').innerText = audio.muted ? '🔇' : '🔊';
-  });
-
-  // Typewriter Title Effect
-  const titleText = "@axelet";
-  let titleIndex = 0;
-
-  function typeWriter() {
-      document.title = titleText.substring(0, titleIndex + 1);
-      titleIndex++;
-
-      if (titleIndex < titleText.length) {
-          setTimeout(typeWriter, 150);
-      } else {
-          setTimeout(() => {
-              titleIndex = 0;
-              typeWriter();
-          }, 2000);
-      }
-  }
-
-  window.addEventListener('load', typeWriter);
-</script>
-
-</body>
-</html>
+ <html lang="en">
+ <head>
+   <link rel="icon" type="image/png" href="https://i.imgur.com/IcJdCHb.png">
+   <meta property="og:title" content="/axelet">
+   <meta property="og:description" content="@axe1et on discord, email 001@axelet.lol. click to view more information">
+   <meta property="og:image" content="https://i.imgur.com/IcJdCHb.png">
+   <meta property="theme-color" content="#A11A1D">
+   <title>@axelet</title>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+   <style>
+     body {
+       margin: 0;
+       font-family: 'Roboto', sans-serif;
+       color: #FFFFFF;
+       overflow: hidden;
+     }
+ 
+     #bgVideo {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       z-index: -1;
+     }
+ 
+     .content {
+       position: relative;
+       z-index: 10;
+       text-align: center;
+       padding: 20px;
+     }
+ 
+     .userPage_clickToEnterOverlay__yTl7T {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(0, 0, 0, 0.7);
+       backdrop-filter: blur(10px);
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       z-index: 1000;
+     }
+ 
+     .userPage_clickToEnterText__3qgKs {
+       font-weight: 700;
+       font-size: 32px;
+       cursor: pointer;
+     }
+ 
+     a {
+       color: #ffffff;
+       text-decoration: none;
+     }
+ 
+     pre {
+       white-space: pre-wrap;
+       font-family: 'Courier New', Courier, monospace;
+     }
+ 
+     #spotifyPlayer {
+       display: none;
+     }
+ 
+     #volumeControl {
+       position: fixed;
+       top: 10px;
+       left: 10px;
+       z-index: 1000;
+       display: flex;
+       align-items: center;
+       gap: 8px;
+       background: rgba(0, 0, 0, 0.6);
+       padding: 8px;
+       border-radius: 8px;
+     }
+ 
+     #volumeSlider {
+       width: 100px;
+       cursor: pointer;
+       appearance: none;
+       height: 5px;
+       background: #fff;
+       outline: none;
+       border-radius: 5px;
+     }
+ 
+     #volumeSlider::-webkit-slider-thumb {
+       appearance: none;
+       width: 12px;
+       height: 12px;
+       background: #A11A1D;
+       border-radius: 50%;
+       cursor: pointer;
+     }
+ 
+     #volumeIcon {
+       color: white;
+       font-size: 24px;
+       cursor: pointer;
+     }
+   </style>
+ </head>
+ <body>
+ 
+ <video autoplay muted loop playsinline id="bgVideo">
+   <source src="https://dl.dropboxusercontent.com/scl/fi/q1z54y0qz6nd0nlxp7l5x/Untitled-video-Made-with-Clipchamp-1.mp4?rlkey=ah6yvx4c6aohvpbj1c1qop02n&dl=0" type="video/mp4">
+   Your browser does not support the video tag.
+ </video>
+ 
+ <div class="userPage_clickToEnterOverlay__yTl7T" onclick="enterSite()">
+   <div class="userPage_clickToEnterText__3qgKs">click to enter...</div>
+ </div>
+ 
+ <div class="content" style="visibility:hidden;">
+ <pre style="font-weight: 900;">
+ 
+     <strong>$$$$$$$$  $$      $$  $$$$$$$$  $$       $$$$$$$$  $$$$$$$$$$
+ $$    $$   $$    $$   $$        $$       $$            $$
+   $$    $$     $$ $$    $$        $$       $$            $$  
+ $$$$$$$$      $$$     $$$$$$$$  $$       $$$$$$$$      $$
+ $$    $$    $$  $$    $$        $$       $$            $$
+ $$    $$   $$    $$   $$        $$       $$            $$
+ $$    $$  $$      $$  $$$$$$$$  $$$$$$   $$$$$$$$      $$</strong>
+ 
+ 
+ discord: <a href="https://discord.com/users/1292066809050300498" target="_blank">axe1et</a>
+ 
+ telegram: <a href="https://t.me/axelet001" target="_blank">axelet001</a>
+ telegram: <a href="https://t.me/a_xelet" target="_blank">a_xelet</a>
+ 
+ email: <a href="mailto:001@axelet.lol" target="_blank">001@axelet.lol</a>
+ 
+ timezone: <a href="https://time.is/GMT" target="_blank">GMT (UK)</a>
+ 
+ 
+ <img src="https://discord.c99.nl/widget/theme-4/1292066809050300498.png" style="width: 450px;">
+ 
+ 
+ discord (old): <a href="https://discord.com/users/682830561714110502" target="_blank">@axelet</a>
+ Offline for 24-48 hours = terminated
+ 
+ To view these servers/accounts just click on them, 
+ it should redirect you to them. 
+ </pre>
+ 
+ <audio id="spotifyPlayer" src="https://dl.dropboxusercontent.com/scl/fi/lxo885270jszmsrd27rja/SpotifyMate.com-EVIL-J0RDAN-Playboi-Carti.mp3?rlkey=isluode68nlz9gjc2dd4f5o62&dl=0" preload="auto" loop></audio>
+ 
+ <div id="volumeControl">
+   <span id="volumeIcon">
+     🔊
+   </span>
+   <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+ </div>
+ 
+ </div>
+ 
+ <script>
+   function enterSite() {
+     document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
+     document.querySelector('.content').style.visibility = 'visible';
+ 
+     const audio = document.getElementById('spotifyPlayer');
+     audio.volume = 0.5;
+     audio.play().catch(e => console.log("Autoplay blocked."));
+   }
+ 
+   const volumeSlider = document.getElementById('volumeSlider');
+   const audio = document.getElementById('spotifyPlayer');
+ 
+   volumeSlider.addEventListener('input', () => audio.volume = volumeSlider.value);
+   document.getElementById('volumeIcon').addEventListener('click', () => {
+     audio.muted = !audio.muted;
+     document.getElementById('volumeIcon').innerText = audio.muted ? '🔇' : '🔊';
+   });
+ 
+   // Typewriter Title Effect
+   const titleText = "@axelet";
+   let titleIndex = 0;
+ 
+   function typeWriter() {
+       document.title = titleText.substring(0, titleIndex + 1);
+       titleIndex++;
+ 
+       if (titleIndex < titleText.length) {
+           setTimeout(typeWriter, 150);
+       } else {
+           setTimeout(() => {
+               titleIndex = 0;
+               typeWriter();
+           }, 2000);
+       }
+   }
+ 
+   window.addEventListener('load', typeWriter);
+ </script>
+ 
+ </body>
+ </html>
