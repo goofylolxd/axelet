@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload to Imgur</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input { margin: 10px; }
+        img { max-width: 100%; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Upload an Image to Imgur</h2>
+    <input type="file" id="imageInput">
+    <button onclick="uploadImage()">Upload</button>
+    <p id="status"></p>
+    <img id="uploadedImage" src="" alt="Uploaded Image">
+
+    <script>
+        async function uploadImage() {
+            let input = document.getElementById("imageInput");
+            if (!input.files.length) {
+                alert("Please select a file!");
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append("image", input.files[0]);
+
+            let response = await fetch("https://api.imgur.com/3/upload", {
+                method: "POST",
+                headers: {
+                    "Authorization": "Client-ID 7d435617655a3e2"  // Replace with your Client ID
+                },
+                body: formData
+            });
+
+            let result = await response.json();
+            if (result.success) {
+                let imgurUrl = result.data.link;
+                let customUrl = imgurUrl.replace("i.imgur.com", "axelet.lol");
+
+                document.getElementById("status").innerText = "Upload Successful!";
+                document.getElementById("uploadedImage").src = customUrl;
+                console.log("Original URL:", imgurUrl);
+                console.log("Custom URL:", customUrl);
+            } else {
+                document.getElementById("status").innerText = "Upload failed.";
+            }
+        }
+    </script>
+</body>
+</html>
