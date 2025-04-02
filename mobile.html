@@ -2,35 +2,102 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    if (window.innerWidth <= 768) {
-      window.location.href = "mobile.html";
-    }
-  </script>
   <link rel="icon" type="image/png" href="https://i.imgur.com/IcJdCHb.png">
   <meta property="og:title" content="/axelet">
   <meta property="og:description" content="@axe1et on discord, email 001@axelet.lol. Click to view more information">
   <meta property="og:image" content="https://i.imgur.com/IcJdCHb.png">
   <meta property="theme-color" content="#A11A1D">
-  <title>@axelet</title>
+  <title>@axelet - Mobile</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       color: #FFFFFF;
-      overflow: hidden;
+      background-color: black;
       text-align: center;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      flex-direction: column;
+      padding: 20px;
+      overflow: hidden;
+    }
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .content {
+      position: relative;
+      z-index: 10;
+      max-width: 90%;
+    }
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .enter-text {
+      font-weight: 700;
+      font-size: 24px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to @axelet</h1>
-  <p>This is the desktop version. Mobile users are redirected.</p>
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="https://dl.dropboxusercontent.com/scl/fi/x4mznj3ho9iqjl9w57r9v/Car-4k-wallpaper.mp4?rlkey=gz8jbxryt8pqh92kbebs0bafu&dl=0">
+    Your browser does not support the video tag.
+  </video>
+  
+  <div class="overlay" onclick="enterSite()">
+    <div class="enter-text">Click to enter...</div>
+  </div>
+  
+  <div class="content" style="visibility:hidden;">
+    <h1>@axelet</h1>
+    <p><strong>discord:</strong> <a href="https://discord.com/users/1292066809050300498" target="_blank">axe1et</a></p>
+    <p><strong>timezone:</strong> <a href="https://time.is/WEST" target="_blank">WEST</a></p>
+    <p><strong>telegram:</strong> <a href="https://t.me/a_xelet" target="_blank">a_xelet</a></p>
+    <p><strong>email:</strong> <a href="mailto:001@axelet.lol">001@axelet.lol</a></p>
+    <img src="https://discord.c99.nl/widget/theme-4/1292066809050300498.png" alt="Discord Profile">
+    <p><strong>discord (old):</strong> <a href="https://discord.com/users/682830561714110502" target="_blank">@axelet</a></p>
+    <p>Offline for 24-48 hours = terminated</p>
+    <p>To view these servers/accounts just click on them, it should redirect you to them.</p>
+    
+    <audio id="spotifyPlayer" src="https://dl.dropboxusercontent.com/scl/fi/22jnrnhadpqto31wixw75/SpotifyMate.com-Menage-Docboy-3.mp3?rlkey=20llw850avvofr1y2hz134j15&dl=0" preload="auto" loop></audio>
+  </div>
+  
+  <script>
+    function enterSite() {
+      document.querySelector('.overlay').style.display = 'none';
+      document.querySelector('.content').style.visibility = 'visible';
+      const audio = document.getElementById('spotifyPlayer');
+      audio.volume = 0.5;
+      audio.play().catch(e => console.log("Autoplay blocked."));
+    }
+  </script>
 </body>
 </html>
