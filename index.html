@@ -19,7 +19,7 @@
       font-family: 'Roboto', sans-serif;
       color: #FFFFFF;
       overflow: hidden;
-      cursor: url('https://i.imgur.com/hMaVctT.png'), auto;
+      cursor: auto;
     }
 
     #bgVideo {
@@ -55,18 +55,39 @@
 
     .userPage_clickToEnterText__3qgKs {
       font-weight: 700;
-      font-size: 32px;
+      font-size: 36px;
       cursor: pointer;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .userPage_clickToEnterText__3qgKs:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
     }
 
     a {
       color: #ffffff;
       text-decoration: none;
+      display: inline-block;
+      padding: 10px 16px;
+      margin: 4px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
     }
 
     pre {
       white-space: pre-wrap;
       font-family: 'Courier New', Courier, monospace;
+      text-align: left;
     }
 
     #spotifyPlayer {
@@ -82,15 +103,15 @@
       align-items: center;
       gap: 8px;
       background: rgba(0, 0, 0, 0.6);
-      padding: 8px;
-      border-radius: 8px;
+      padding: 10px;
+      border-radius: 10px;
     }
 
     #volumeSlider {
-      width: 100px;
+      width: 120px;
       cursor: pointer;
       appearance: none;
-      height: 5px;
+      height: 6px;
       background: #fff;
       outline: none;
       border-radius: 5px;
@@ -98,8 +119,8 @@
 
     #volumeSlider::-webkit-slider-thumb {
       appearance: none;
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       background: #A11A1D;
       border-radius: 50%;
       cursor: pointer;
@@ -107,7 +128,7 @@
 
     #volumeIcon {
       color: white;
-      font-size: 24px;
+      font-size: 26px;
       cursor: pointer;
     }
   </style>
