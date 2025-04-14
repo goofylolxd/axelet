@@ -14,12 +14,19 @@
   <title>@axelet</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <style>
+    html {
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       color: #FFFFFF;
       overflow: hidden;
       cursor: auto;
+      transform: scale(0.75);
+      transform-origin: top left;
+      width: 133.33%;
     }
 
     #bgVideo {
@@ -91,17 +98,18 @@
       z-index: 1000;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
       background: rgba(0, 0, 0, 0.6);
-      padding: 8px;
-      border-radius: 8px;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 24px;
     }
 
     #volumeSlider {
-      width: 100px;
+      width: 150px;
       cursor: pointer;
       appearance: none;
-      height: 5px;
+      height: 8px;
       background: #fff;
       outline: none;
       border-radius: 5px;
@@ -109,8 +117,8 @@
 
     #volumeSlider::-webkit-slider-thumb {
       appearance: none;
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       background: #A11A1D;
       border-radius: 50%;
       cursor: pointer;
@@ -118,7 +126,7 @@
 
     #volumeIcon {
       color: white;
-      font-size: 24px;
+      font-size: 28px;
       cursor: pointer;
     }
   </style>
@@ -157,8 +165,7 @@ telegram: <a href="https://t.me/a_xelet" target="_blank">a_xelet</a>
 email: <a href="mailto:001@axelet.lol" target="_blank">001@axelet.lol</a>
 
 
-
-<img src="https://discord.c99.nl/widget/theme-4/1292066809050300498.png" style="width: 550px;">
+<img src="https://discord.c99.nl/widget/theme-4/1292066809050300498.png" style="width: 450px;">
 
 discord (old): <a href="https://discord.com/users/682830561714110502" target="_blank">@axelet</a>
 
@@ -169,9 +176,7 @@ it should redirect you to them.
 <audio id="spotifyPlayer" src="https://dl.dropboxusercontent.com/scl/fi/22jnrnhadpqto31wixw75/SpotifyMate.com-Menage-Docboy-3.mp3?rlkey=20llw850avvofr1y2hz134j15&dl=0" preload="auto" loop></audio>
 
 <div id="volumeControl">
-  <span id="volumeIcon">
-    🔊
-  </span>
+  <span id="volumeIcon">🔊</span>
   <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
 </div>
 
