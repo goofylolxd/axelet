@@ -14,19 +14,14 @@
   <title>@axelet</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <style>
-    html {
-      overflow-x: hidden;
-    }
-
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: 'Roboto', sans-serif;
       color: #FFFFFF;
       overflow: hidden;
       cursor: auto;
-      transform: scale(0.75);
-      transform-origin: top left;
-      width: 133.33%;
     }
 
     #bgVideo {
@@ -58,11 +53,12 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
+      transition: backdrop-filter 0.5s ease;
     }
 
     .userPage_clickToEnterText__3qgKs {
       font-weight: 700;
-      font-size: 32px;
+      font-size: 48px;
       cursor: pointer;
     }
 
@@ -138,7 +134,7 @@
   Your browser does not support the video tag.
 </video>
 
-<div class="userPage_clickToEnterOverlay__yTl7T" onclick="enterSite()">
+<div class="userPage_clickToEnterOverlay__yTl7T" id="overlay" onclick="enterSite()">
   <div class="userPage_clickToEnterText__3qgKs">click to enter...</div>
 </div>
 
@@ -184,8 +180,13 @@ it should redirect you to them.
 
 <script>
   function enterSite() {
-    document.querySelector('.userPage_clickToEnterOverlay__yTl7T').style.display = 'none';
-    document.querySelector('.content').style.visibility = 'visible';
+    const overlay = document.getElementById('overlay');
+    overlay.style.backdropFilter = 'blur(3px)';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      document.querySelector('.content').style.visibility = 'visible';
+    }, 400);
 
     const audio = document.getElementById('spotifyPlayer');
     audio.volume = 0.5;
